@@ -655,6 +655,12 @@ class FineDiff {
 		$start = $end = 0;
 		for (;;) {
 			$end += self::mb_strcspn($text, $delimiters, $end);
+			if ( $end === $start ) {
+				break;
+				}
+			$fragments[$start] = mb_substr($text, $start, $end - $start);
+			$start = $end;
+
 			$end += self::mb_strspn($text, $delimiters, $end);
 			if ( $end === $start ) {
 				break;
