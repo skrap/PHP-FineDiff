@@ -34,6 +34,10 @@
  *
  * 10-Dec-2011 (Christoph Mewes):
  *   - added UTF-8 support, fixed strange usage of htmlentities
+ * 
+ * 15-Jul-2013 (Peter Bagnall):
+ *   - fixed bug where getting the diff of "abc def" and "abc def ghi" would fail
+ *     to recognise that def was a match, because whitespace was being included in fragments.
 */
 
 mb_internal_encoding('UTF-8');
